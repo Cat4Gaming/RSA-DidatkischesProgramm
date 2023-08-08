@@ -1,0 +1,3 @@
+*.mat -linguist-detectable
+*.shader  -linguist-detectable
+*.cginc  -linguist-detectable
