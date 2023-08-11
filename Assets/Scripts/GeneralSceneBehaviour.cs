@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuBehavior : MonoBehaviour {
+public class GeneralSceneBehaviour : MonoBehaviour {
     public void ExitGame() {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
