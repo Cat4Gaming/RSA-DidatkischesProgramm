@@ -12,7 +12,6 @@ public class UnencryptedSceneBehaviour : MonoBehaviour {
     [SerializeField] private Transform startPos, endPos, evePos, midPos;
     [SerializeField] private GameObject startLetter, eveLetter;
 
-
     public void switchEve() {
         eve = !eve;
     }
