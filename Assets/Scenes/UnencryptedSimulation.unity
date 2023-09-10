@@ -470,8 +470,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1377589792}
-        m_TargetAssemblyTypeName: UnencryptedSceneBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 1377589793}
+        m_TargetAssemblyTypeName: SimulationSceneBehaviour, Assembly-CSharp
         m_MethodName: sendMsg
         m_Mode: 0
         m_Arguments:
@@ -700,6 +700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 372266823}
   - component: {fileID: 372266824}
+  - component: {fileID: 372266825}
   m_Layer: 0
   m_Name: AliceToBob
   m_TagString: Untagged
@@ -733,6 +734,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b9699295e4c4e47914af515084e400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &372266825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372266822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0637cb098f6e4d342bbb4bdf61b5b937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   toBob: 1
   recieveText: {fileID: 1871671397}
   textToEve: {fileID: 328404276}
@@ -742,6 +755,7 @@ MonoBehaviour:
   midPos: {fileID: 21652106}
   startLetter: {fileID: 1269736589}
   eveLetter: {fileID: 637563854}
+  enc: {fileID: 372266824}
 --- !u!1 &432685886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2077,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1377589791}
   - component: {fileID: 1377589792}
+  - component: {fileID: 1377589793}
   m_Layer: 0
   m_Name: BobToAlice
   m_TagString: Untagged
@@ -2096,6 +2111,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b9699295e4c4e47914af515084e400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1377589793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377589790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0637cb098f6e4d342bbb4bdf61b5b937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   toBob: 0
   recieveText: {fileID: 1379576806}
   textToEve: {fileID: 328404276}
@@ -2105,6 +2132,7 @@ MonoBehaviour:
   midPos: {fileID: 21652106}
   startLetter: {fileID: 483739485}
   eveLetter: {fileID: 637563854}
+  enc: {fileID: 1377589792}
 --- !u!1 &1379576804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,8 +2859,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 372266824}
-        m_TargetAssemblyTypeName: UnencryptedSceneBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 372266825}
+        m_TargetAssemblyTypeName: SimulationSceneBehaviour, Assembly-CSharp
         m_MethodName: switchEve
         m_Mode: 1
         m_Arguments:
@@ -2843,8 +2871,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1377589792}
-        m_TargetAssemblyTypeName: UnencryptedSceneBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 1377589793}
+        m_TargetAssemblyTypeName: SimulationSceneBehaviour, Assembly-CSharp
         m_MethodName: switchEve
         m_Mode: 1
         m_Arguments:
@@ -3455,8 +3483,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372266824}
-        m_TargetAssemblyTypeName: UnencryptedSceneBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 372266825}
+        m_TargetAssemblyTypeName: SimulationSceneBehaviour, Assembly-CSharp
         m_MethodName: sendMsg
         m_Mode: 0
         m_Arguments:

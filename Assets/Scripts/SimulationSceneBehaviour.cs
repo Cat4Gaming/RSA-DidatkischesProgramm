@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
+using System.Numerics;
 
-public class UnencryptedSceneBehaviour : MonoBehaviour {
+public class SimulationSceneBehaviour : MonoBehaviour {
     private string msgToSend;
     private bool moveLetter, eve;
     [SerializeField] private bool toBob;
@@ -11,31 +13,32 @@ public class UnencryptedSceneBehaviour : MonoBehaviour {
     [SerializeField] private TMP_Text textToEve;
     [SerializeField] private Transform startPos, endPos, evePos, midPos;
     [SerializeField] private GameObject startLetter, eveLetter;
-
+    [SerializeField] private Encryption enc;
+    
     public void switchEve() {
         eve = !eve;
     }
 
     public void sendMsg(string msg) {
-        msgToSend = msg;
+        msgToSend = "" + enc.encryptMsg(msg);
         moveLetter = true;
     }
 
     void Update() {
         if(moveLetter) {
-            startLetter.transform.position = Vector3.MoveTowards(startLetter.transform.position, endPos.position, 2);
+            startLetter.transform.position = UnityEngine.Vector3.MoveTowards(startLetter.transform.position, endPos.position, 2);
             if(toBob){
                 if(eve && startLetter.transform.position.x >= eveLetter.transform.position.x) {
-                    eveLetter.transform.position = Vector3.MoveTowards(eveLetter.transform.position, evePos.position, 2);
+                    eveLetter.transform.position = UnityEngine.Vector3.MoveTowards(eveLetter.transform.position, evePos.position, 2);
                 }
             } else {
                 if(eve && startLetter.transform.position.x <= eveLetter.transform.position.x) {
-                    eveLetter.transform.position = Vector3.MoveTowards(eveLetter.transform.position, evePos.position, 2);
+                    eveLetter.transform.position = UnityEngine.Vector3.MoveTowards(eveLetter.transform.position, evePos.position, 2);
                 }
             }
             if(startLetter.transform.position == endPos.position) {
                 moveLetter = false;
-                recieveText.text = msgToSend;
+                recieveText.text = enc.decryptMsg(msgToSend);
                 if(eve) {
                     if(toBob) textToEve.text = "Alice: " + msgToSend;
                     else textToEve.text = "Bob: " + msgToSend;

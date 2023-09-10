@@ -307,8 +307,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnencryptedSceneBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 1151268499}
+        m_TargetAssemblyTypeName: RSASceneBehaviour, Assembly-CSharp
         m_MethodName: sendMsg
         m_Mode: 0
         m_Arguments:
@@ -1656,6 +1656,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863307861}
   m_CullTransparentMesh: 1
+--- !u!1 &894337283
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 894337284}
+  - component: {fileID: 894337285}
+  - component: {fileID: 894337286}
+  m_Layer: 0
+  m_Name: BobToAlice
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &894337284
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894337283}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2055.0403, y: 1122.5675, z: -4061.6304}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1830296524}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &894337285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894337283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0637cb098f6e4d342bbb4bdf61b5b937, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toBob: 0
+  recieveText: {fileID: 76340696}
+  textToEve: {fileID: 1131654248}
+  startPos: {fileID: 2099756745}
+  endPos: {fileID: 854717767}
+  evePos: {fileID: 434547064}
+  midPos: {fileID: 1121779286}
+  startLetter: {fileID: 951114834}
+  eveLetter: {fileID: 1569227208}
+  enc: {fileID: 894337286}
+--- !u!114 &894337286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894337283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9057fb4c31b30d248bf02fd33a7c94f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &897071815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1762,6 +1828,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7624942982226789776, guid: ce53310481ceb2344a219b9a734e22e3, type: 3}
   m_PrefabInstance: {fileID: 897071815}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &897071817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748741192211260494, guid: ce53310481ceb2344a219b9a734e22e3, type: 3}
+  m_PrefabInstance: {fileID: 897071815}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &951114832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1866,6 +1937,11 @@ PrefabInstance:
 --- !u!224 &951114833 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7624942982226789776, guid: ce53310481ceb2344a219b9a734e22e3, type: 3}
+  m_PrefabInstance: {fileID: 951114832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &951114834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748741192211260494, guid: ce53310481ceb2344a219b9a734e22e3, type: 3}
   m_PrefabInstance: {fileID: 951114832}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1007028804
@@ -2181,8 +2257,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1151268498}
   - component: {fileID: 1151268499}
+  - component: {fileID: 1151268500}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: AliceToBob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2214,15 +2291,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0637cb098f6e4d342bbb4bdf61b5b937, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toBob: 0
-  recieveText: {fileID: 0}
-  textToEve: {fileID: 0}
-  startPos: {fileID: 0}
-  endPos: {fileID: 0}
-  evePos: {fileID: 0}
-  midPos: {fileID: 0}
-  startLetter: {fileID: 0}
-  eveLetter: {fileID: 0}
+  toBob: 1
+  recieveText: {fileID: 569488203}
+  textToEve: {fileID: 1131654248}
+  startPos: {fileID: 43437013}
+  endPos: {fileID: 1584496916}
+  evePos: {fileID: 434547064}
+  midPos: {fileID: 1121779286}
+  startLetter: {fileID: 897071817}
+  eveLetter: {fileID: 1569227208}
+  enc: {fileID: 1151268500}
+--- !u!114 &1151268500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151268497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9057fb4c31b30d248bf02fd33a7c94f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1274961784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2806,6 +2896,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7624942982226789776, guid: ce53310481ceb2344a219b9a734e22e3, type: 3}
   m_PrefabInstance: {fileID: 1569227206}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1569227208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748741192211260494, guid: ce53310481ceb2344a219b9a734e22e3, type: 3}
+  m_PrefabInstance: {fileID: 1569227206}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1584496915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3320,6 +3415,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1151268498}
+  - {fileID: 894337284}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3575,8 +3671,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnencryptedSceneBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 1151268499}
+        m_TargetAssemblyTypeName: RSASceneBehaviour, Assembly-CSharp
         m_MethodName: switchEve
         m_Mode: 1
         m_Arguments:
@@ -3587,8 +3683,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnencryptedSceneBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 894337285}
+        m_TargetAssemblyTypeName: RSASceneBehaviour, Assembly-CSharp
         m_MethodName: switchEve
         m_Mode: 1
         m_Arguments:
@@ -3757,8 +3853,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnencryptedSceneBehaviour, Assembly-CSharp
+      - m_Target: {fileID: 894337285}
+        m_TargetAssemblyTypeName: RSASceneBehaviour, Assembly-CSharp
         m_MethodName: sendMsg
         m_Mode: 0
         m_Arguments:
