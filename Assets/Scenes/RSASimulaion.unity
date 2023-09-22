@@ -2044,6 +2044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keysText: {fileID: 587334769}
+  genOnStart: 1
 --- !u!1001 &897071815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2770,6 +2771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   keysText: {fileID: 935135864}
+  genOnStart: 1
 --- !u!1 &1274961784
 GameObject:
   m_ObjectHideFlags: 0

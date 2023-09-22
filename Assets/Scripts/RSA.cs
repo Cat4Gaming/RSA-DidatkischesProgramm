@@ -8,6 +8,7 @@ using TMPro;
 public class RSA : Encryption {
     private BigInteger p, q, N, e, d;
     [SerializeField] private TMP_Text keysText;
+    [SerializeField] private bool genOnStart;
 
     public override string encryptMsg(string initMsg) {
         return "" + encMsg(e, N, Int32.Parse(initMsg));
@@ -18,8 +19,10 @@ public class RSA : Encryption {
     }
 
     public void Start() {
-        genKeys();
-        keysText.text = ("public Key:\n  N: " + N + "\n  d: " + d + "\nprivate Key:\n  e: " + e);
+        if(genOnStart) {
+            genKeys();
+            keysText.text = ("public Key:\n  N: " + N + "\n  d: " + d + "\nprivate Key:\n  e: " + e);
+        }
     }
 
     public void genKeys() {

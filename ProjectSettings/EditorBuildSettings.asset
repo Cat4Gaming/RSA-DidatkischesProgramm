@@ -8,9 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Theorie.unity
-    guid: 7793097a36e3c1f498e0eb4f9157a949
+    guid: 5ec0a1c59cd350e42a6f3d98e4fa48e5
   - enabled: 1
     path: Assets/Scenes/UnencryptedSimulation.unity
     guid: 6dd33ed47a5f81049aa43d0d84f70658
