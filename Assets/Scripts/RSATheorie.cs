@@ -55,9 +55,13 @@ public class RSATheorie : MonoBehaviour {
         if(p == -3 || q == -3) {
             eTxt.text = ("Bitte generieren Sie beide Primzahlen im ersten Schritt.");
         } else {
-            e = rsa.calcE(p, q, BigInteger.Parse(te));
-            eTxt.text = (e + "");
-            eTxt1.text = (e + "");
+            if(BigInteger.Parse(te) < 0) {
+                eTxt.text = ("Bitte geben Sie einen positiven Startwert an.");
+            } else {
+                e = rsa.calcE(p, q, BigInteger.Parse(te));
+                eTxt.text = (e + "");
+                eTxt1.text = (e + "");
+            }
         }
     }
     

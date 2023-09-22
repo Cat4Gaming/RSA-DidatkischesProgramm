@@ -10,7 +10,12 @@ public class GeneralSceneBehaviour : MonoBehaviour {
         #endif
         Application.Quit();
     }
+
     public void LoadScene(int sceneNumber) {
         SceneManager.LoadScene(sceneNumber);
+    }
+
+    public void OpenKeyboard() {
+        TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default, false, false, true);
     }
 }

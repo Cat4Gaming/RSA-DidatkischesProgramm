@@ -14,7 +14,6 @@ public class TNVirtualKeyboard : MonoBehaviour
 	
 	public InputField targetText;
 	
-	
     // Start is called before the first frame update
     void Start()
     {
