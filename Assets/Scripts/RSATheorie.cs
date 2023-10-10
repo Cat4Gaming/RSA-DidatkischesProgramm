@@ -9,6 +9,7 @@ public class RSATheorie : MonoBehaviour {
     [SerializeField] private RSA rsa;
     private BigInteger p, q, N, e, d;
     [SerializeField] private TMP_Text pTxt, qTxt, pTxt1, qTxt1, pTxt2, qTxt2, pTxt3, qTxt3, nTxt, eTxt, eTxt1, dTxt;
+    [SerializeField] private GameObject next1, next2, next3, next4;
 
     public void Start() {
         p = -3;
@@ -16,6 +17,13 @@ public class RSATheorie : MonoBehaviour {
         e = -3;
         N = -3;
         d = -3;
+    }
+
+    public void Update() {
+        if(p != -3 && q != -3) next1.SetActive(true);
+        if(N != -3) next2.SetActive(true);
+        if(e != -3) next3.SetActive(true);
+        if(d != -3) next4.SetActive(true);
     }
     
     public void setP(string tp) {
@@ -43,34 +51,18 @@ public class RSATheorie : MonoBehaviour {
     }
 
     public void genN() {
-        if(p == -3 || q == -3) {
-            nTxt.text = ("Bitte generieren Sie beide Primzahlen im vorherigen Schritt.");
-        } else {
-            N = rsa.calcN(p, q);
-            nTxt.text = (N + "");
-        }
+        N = rsa.calcN(p, q);
+        nTxt.text = (N + "");
     }
 
     public void genE(string te) {
-        if(p == -3 || q == -3) {
-            eTxt.text = ("Bitte generieren Sie beide Primzahlen im ersten Schritt.");
-        } else {
-            e = rsa.calcE(p, q, BigInteger.Parse(te));
-            eTxt.text = (e + "");
-            eTxt1.text = (e + "");
-        }
+        e = rsa.calcE(p, q, BigInteger.Parse(te));
+        eTxt.text = (e + "");
+        eTxt1.text = (e + "");
     }
     
     public void genD() {
-        if(p == -3 || q == -3) {
-            dTxt.text = ("Bitte generieren Sie beide Primzahlen im ersten Schritt.");
-        } else {
-            if(e == -3) {
-                dTxt.text = ("Bitte generieren Sie die Zahl e im vorherigen Schritt.");
-            } else {
-                d = rsa.calcD(e, rsa.calcA(p, q));
-                dTxt.text = (d + "");
-            }
-        }
+        d = rsa.calcD(e, rsa.calcA(p, q));
+        dTxt.text = (d + "");
     }
 }
