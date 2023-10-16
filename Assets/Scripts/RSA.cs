@@ -4,18 +4,31 @@ using UnityEngine;
 using System;
 using System.Numerics;
 using TMPro;
+using System.Text;
 
 public class RSA : Encryption {
     private BigInteger p, q, N, e, d;
     [SerializeField] private TMP_Text keysText;
     [SerializeField] private bool genOnStart;
+    private Encoding unicode = Encoding.Unicode;
 
-    public override string encryptMsg(string initMsg) {
-        return "" + encMsg(e, N, Int32.Parse(initMsg));
+    public override BigInteger[] encryptMsg(string initMsg) {
+        byte[] txt = ConvertToByteArray(initMsg);
+        int length = txt.Length;
+        BigInteger[] enc = new BigInteger[length];
+        for(int i = 0; i < length; i++) {
+            enc[i] = encMsg(e, N, txt[i]);
+        }
+        return enc;
     }
 
-    public override string decryptMsg(string encMsg) {
-        return "" + decMsg(d, N, BigInteger.Parse(encMsg));
+    public override string decryptMsg(BigInteger[] encMsg) {
+        int length = encMsg.Length;
+        byte[] dec = new byte[length];
+        for(int i = 0; i < length; i++) {
+            dec[i] = decMsg(d, N, encMsg[i]).ToByteArray()[0];
+        }
+        return Encoding.Unicode.GetString(dec);
     }
 
     public void Start() {
@@ -23,6 +36,17 @@ public class RSA : Encryption {
             genKeys();
             keysText.text = ("public Key:\n  N: " + N + "\n  d: " + d + "\nprivate Key:\n  e: " + e);
         }
+    }
+
+    byte[] ConvertToByteArray(string s) {
+        byte[] b = unicode.GetBytes(s);
+        return b;
+    }
+
+    private static string UnicodeToChar(string hex) {
+        int code = int.Parse(hex, System.Globalization.NumberStyles.HexNumber);
+        string unicodeString = char.ConvertFromUtf32(code);
+        return unicodeString;
     }
 
     public void genKeys() {
