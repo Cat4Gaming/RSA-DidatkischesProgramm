@@ -74,23 +74,21 @@ public class RSA : Encryption {
         System.Random random = new System.Random();
         return random.Next();
     }
-
-    public bool isPrime(BigInteger n) {
-        if(n == 2 || n == 3) return true;
-        if(n <= 1 || n % 2 == 0 || n % 3 == 0) return false;
-        for(BigInteger i = 5; i * i <= n; i+=6) {
-            if(n % i == 0 || n % (i+2) == 0) return false;
-        }
-        return true;
-    }
-
+    
     public BigInteger genPrime(BigInteger start) {
         for(BigInteger i = 0; i < 1; start++) {
-            if(isPrime(start)) {
-                i++;
-            }
+            if(isPrime(start)) i++;
         }
         return start - 1;
+    }
+
+    public bool isPrime(BigInteger s) {
+        if(s == 2 || s == 3) return true;
+        if(s <= 1 || s % 2 == 0 || s % 3 == 0 || s % 5 == 0) return false;
+        for(BigInteger i = 5; i * i <= s; i+=6) {
+            if(s % i == 0 || s % (i+2) == 0) return false;
+        }
+        return true;
     }
 
     public BigInteger calcN(BigInteger p, BigInteger q) {
